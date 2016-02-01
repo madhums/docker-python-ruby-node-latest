@@ -1,5 +1,5 @@
 # Pull base image.
-FROM ubuntu
+FROM buildpack-deps:wheezy
 
 # Install.
 RUN \
