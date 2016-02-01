@@ -1,5 +1,5 @@
 # Pull base image.
-FROM buildpack-deps:wheezy
+FROM buildpack-deps:trusty
 
 # Install.
 RUN \
@@ -13,14 +13,12 @@ RUN \
 
 # Install Python.
 RUN \
-  apt-get update && \
   apt-get install -y python python-dev python-pip python-virtualenv && \
   rm -rf /var/lib/apt/lists/*
 
 # Install Ruby.
 RUN \
-  apt-get update && \
-  apt-get install -y ruby ruby-dev ruby-bundler && \
+  apt-get install -y ruby ruby-dev && \
   rm -rf /var/lib/apt/lists/*
 
 # Install Node.js
@@ -35,7 +33,7 @@ RUN \
   CXX="g++ -Wno-unused-local-typedefs" make install && \
   cd /tmp && \
   rm -rf /tmp/node-v* && \
-  npm install -g npm@3.3.12 && \
+  npm install -g npm && \
   printf '\n# Node.js\nexport PATH="node_modules/.bin:$PATH"' >> /root/.bashrc
 
 # Define working directory.
