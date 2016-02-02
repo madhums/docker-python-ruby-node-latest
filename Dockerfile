@@ -13,7 +13,7 @@ RUN \
 
 # Install Python.
 RUN \
-  apt-get install -y python python-dev python-pip python-virtualenv && \
+  apt-get install -y python python-dev python-pip && \
   rm -rf /var/lib/apt/lists/*
 
 # Install Ruby.
