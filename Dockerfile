@@ -11,14 +11,11 @@ RUN \
   apt-get install -y byobu curl git htop man unzip vim wget && \
   rm -rf /var/lib/apt/lists/*
 
-# Install Python.
-RUN \
-  apt-get install -y python python-dev python-pip && \
-  rm -rf /var/lib/apt/lists/*
-
 # Install Ruby.
 RUN \
-  apt-get install -y ruby ruby-dev && \
+  apt-add-repository ppa:brightbox/ruby-ng && \
+  apt-get update && \
+  apt-get install -y ruby2.2 && \
   rm -rf /var/lib/apt/lists/*
 
 # Install Node.js
